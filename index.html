@@ -1,369 +1,3877 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Anushree | Portfolio</title>
-    <meta name="description" content="Portfolio Template for Developer" />
-
-    <link rel="stylesheet" href="style.css" />
-
+    <title>Anushree Bhuskute — AI Researcher & Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Epilogue:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #f7f6f2;
+        --bg2: #efede8;
+        --bg3: #e5e2dc;
+        --card: #ffffff;
+        --card2: #faf9f6;
+        --ink: #18170f;
+        --ink2: #4a4840;
+        --ink3: #908c84;
+        --accent: #0f5c8a;
+        --accent2: #1a7ab5;
+        --accent-soft: rgba(15, 92, 138, 0.1);
+        --teal: #0d7c6e;
+        --teal-soft: rgba(13, 124, 110, 0.1);
+        --border: rgba(24, 23, 15, 0.09);
+        --border2: rgba(24, 23, 15, 0.05);
+        --nav: rgba(247, 246, 242, 0.92);
+        --shadow: rgba(0, 0, 0, 0.05);
+        --shadow-md: rgba(0, 0, 0, 0.1);
+        --r: 10px;
+        --f-display: "Fraunces", Georgia, serif;
+        --f-body: "Epilogue", sans-serif;
+        --f-mono: "JetBrains Mono", monospace;
+      }
+      [data-theme="dark"] {
+        --bg: #0d0d0b;
+        --bg2: #131310;
+        --bg3: #1a1916;
+        --card: #161613;
+        --card2: #1e1d1a;
+        --ink: #f0ede6;
+        --ink2: #a09c94;
+        --ink3: #64615b;
+        --accent: #4da6d9;
+        --accent2: #6bbce6;
+        --accent-soft: rgba(77, 166, 217, 0.12);
+        --teal: #2bbfa8;
+        --teal-soft: rgba(43, 191, 168, 0.1);
+        --border: rgba(240, 237, 230, 0.08);
+        --border2: rgba(240, 237, 230, 0.04);
+        --nav: rgba(13, 13, 11, 0.92);
+        --shadow: rgba(0, 0, 0, 0.3);
+        --shadow-md: rgba(0, 0, 0, 0.5);
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--f-body);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition:
+          background 0.4s,
+          color 0.4s;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 800;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 48px;
+        background: var(--nav);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        transition:
+          background 0.4s,
+          border-color 0.4s;
+      }
+      .nav-logo {
+        font-family: var(--f-display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .nav-icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--ink2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        text-decoration: none;
+        font-size: 0.82rem;
+      }
+      .nav-icon-btn:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .nav-resume {
+        padding: 7px 16px;
+        border-radius: 7px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+      }
+      .nav-resume:hover {
+        background: var(--accent2);
+        transform: translateY(-1px);
+      }
+      .theme-pill {
+        width: 44px;
+        height: 24px;
+        border-radius: 12px;
+        background: var(--bg3);
+        border: 1.5px solid var(--border);
+        cursor: pointer;
+        position: relative;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+        flex-shrink: 0;
+      }
+      .theme-pill::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--ink3);
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition:
+          transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.3s;
+      }
+      [data-theme="dark"] .theme-pill::after {
+        transform: translateX(20px);
+        background: var(--accent);
+      }
+      section {
+        padding: 96px 48px;
+      }
+      .sec-tag {
+        display: inline-block;
+        font-family: var(--f-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 500;
+        margin-bottom: 14px;
+        transition: color 0.35s;
+      }
+      .sec-title {
+        font-family: var(--f-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: -0.025em;
+        line-height: 1.05;
+        color: var(--ink);
+        margin-bottom: 48px;
+      }
+      .sec-divider {
+        height: 1px;
+        background: var(--border);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 100px 48px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 800px 600px at 75% 40%,
+            rgba(15, 92, 138, 0.06) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 500px 400px at 20% 70%,
+            rgba(13, 124, 110, 0.05) 0%,
+            transparent 70%
+          );
+      }
+      .hero-grid-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(var(--border2) 1px, transparent 1px),
+          linear-gradient(90deg, var(--border2) 1px, transparent 1px);
+        background-size: 72px 72px;
+      }
+      .hero-inner {
+        position: relative;
+        max-width: 900px;
+      }
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid rgba(15, 92, 138, 0.18);
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+        animation: fadeUp 0.6s ease both;
+        transition:
+          background 0.35s,
+          color 0.35s;
+      }
+      .hero-kicker-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--teal);
+        flex-shrink: 0;
+      }
+      .hero-name {
+        font-family: var(--f-display);
+        font-size: clamp(3.2rem, 9vw, 7rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        animation: fadeUp 0.65s 0.08s ease both;
+        margin-bottom: 24px;
+      }
+      .hero-name em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .hero-role {
+        font-family: var(--f-mono);
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+        color: var(--ink3);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+        animation: fadeUp 0.65s 0.16s ease both;
+        min-height: 1.6em;
+      }
+      .typed-txt {
+        color: var(--accent);
+      }
+      .caret {
+        display: inline-block;
+        width: 2px;
+        height: 0.9em;
+        background: var(--accent);
+        vertical-align: middle;
+        margin-left: 2px;
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .hero-desc {
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        color: var(--ink2);
+        max-width: 580px;
+        line-height: 1.7;
+        animation: fadeUp 0.65s 0.24s ease both;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        animation: fadeUp 0.65s 0.32s ease both;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 24px;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        transition: all 0.22s;
+        font-family: var(--f-body);
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(15, 92, 138, 0.3);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--ink);
+        border: 1.5px solid var(--border);
+      }
+      .btn-outline:hover {
+        border-color: var(--ink);
+        transform: translateY(-2px);
+      }
+      .btn-teal {
+        background: var(--teal-soft);
+        color: var(--teal);
+        border: 1px solid rgba(13, 124, 110, 0.2);
+      }
+      .btn-teal:hover {
+        background: var(--teal);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .hero-illustration {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(520px, 42vw);
+        height: min(520px, 42vw);
+        pointer-events: none;
+        animation: fadeUp 0.8s 0.4s ease both;
+      }
+      .hero-illustration svg {
+        width: 100%;
+        height: 100%;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 72px;
+        align-items: start;
+      }
+      .about-portrait {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+      }
+      .about-portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
+        display: block;
+      }
+      .about-bio p {
+        color: var(--ink2);
+        line-height: 1.78;
+        margin-bottom: 16px;
+        font-size: 0.97rem;
+      }
+      .about-bio p strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 40px;
+      }
+      .stat-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 20px;
+        text-align: center;
+        transition:
+          background 0.4s,
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .stat-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px var(--shadow-md);
+      }
+      .stat-num {
+        font-family: var(--f-display);
+        font-size: 2.2rem;
+        line-height: 1;
+        color: var(--accent);
+      }
+      .stat-label {
+        font-size: 0.73rem;
+        color: var(--ink3);
+        margin-top: 5px;
+        letter-spacing: 0.03em;
+        font-family: var(--f-mono);
+      }
+      .pub-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .pub-card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        transition:
+          background 0.4s,
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .pub-card:hover {
+        box-shadow: 0 8px 32px var(--shadow-md);
+        transform: translateY(-2px);
+      }
+      .pub-img {
+        background: var(--bg2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 160px;
+        overflow: hidden;
+      }
+      .pub-body {
+        padding: 24px 28px;
+      }
+      .pub-venue {
+        display: inline-block;
+        font-family: var(--f-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      .pub-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.4;
+        margin-bottom: 8px;
+      }
+      .pub-abstract {
+        font-size: 0.84rem;
+        color: var(--ink3);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      .pub-expand {
+        font-size: 0.84rem;
+        color: var(--ink2);
+        line-height: 1.65;
+        display: none;
+        margin-bottom: 16px;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+      }
+      .pub-expand.open {
+        display: block;
+      }
+      .pub-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .pub-btn {
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--ink2);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--f-body);
+      }
+      .pub-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+      .pub-expand-btn {
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: none;
+        background: var(--accent-soft);
+        color: var(--accent);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--f-body);
+        margin-left: auto;
+      }
+      .pub-expand-btn:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+      .filter-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      .f-btn {
+        padding: 6px 16px;
+        border-radius: 100px;
+        font-size: 0.74rem;
+        font-weight: 600;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--ink2);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--f-body);
+      }
+      .f-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .f-btn.on {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      [data-theme="dark"] .f-btn.on {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .proj-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          background 0.4s,
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .proj-card:hover {
+        box-shadow: 0 10px 40px var(--shadow-md);
+        transform: translateY(-5px);
+      }
+      .proj-thumb {
+        height: 160px;
+        background: var(--bg2);
+        overflow: hidden;
+        display: flex;
+        align-items: stretch;
+      }
+      .proj-thumb svg,
+      .proj-thumb img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .proj-body {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .proj-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      .proj-desc {
+        font-size: 0.82rem;
+        color: var(--ink2);
+        line-height: 1.6;
+        flex: 1;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .ptag {
+        padding: 3px 9px;
+        border-radius: 4px;
+        font-size: 0.67rem;
+        font-weight: 600;
+        font-family: var(--f-mono);
+        letter-spacing: 0.02em;
+        transition: transform 0.2s;
+      }
+      .ptag:hover {
+        transform: scale(1.08);
+      }
+      .ptag.ml {
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+      .ptag.cv {
+        background: #f0fdf4;
+        color: #166534;
+      }
+      .ptag.nlp {
+        background: #fdf4ff;
+        color: #7e22ce;
+      }
+      .ptag.rs {
+        background: #fff7ed;
+        color: #9a3412;
+      }
+      .ptag.sys {
+        background: #f0f9ff;
+        color: #0369a1;
+      }
+      [data-theme="dark"] .ptag.ml {
+        background: rgba(29, 78, 216, 0.18);
+        color: #93c5fd;
+      }
+      [data-theme="dark"] .ptag.cv {
+        background: rgba(22, 101, 52, 0.22);
+        color: #86efac;
+      }
+      [data-theme="dark"] .ptag.nlp {
+        background: rgba(126, 34, 206, 0.18);
+        color: #d8b4fe;
+      }
+      [data-theme="dark"] .ptag.rs {
+        background: rgba(154, 52, 18, 0.2);
+        color: #fdba74;
+      }
+      [data-theme="dark"] .ptag.sys {
+        background: rgba(3, 105, 161, 0.18);
+        color: #7dd3fc;
+      }
+      .proj-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+      .proj-more {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--accent);
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: var(--f-body);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .proj-more:hover .arrow {
+        transform: translateX(4px);
+      }
+      .arrow {
+        transition: transform 0.2s;
+        display: inline-block;
+      }
+      .proj-card.hidden {
+        display: none;
+      }
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .proj-card.in {
+        animation: cardIn 0.3s ease both;
+      }
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal-box {
+        background: var(--card);
+        border-radius: 16px;
+        max-width: 680px;
+        width: 100%;
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 40px;
+        position: relative;
+        transform: translateY(20px);
+        transition: transform 0.25s;
+      }
+      .modal-overlay.open .modal-box {
+        transform: none;
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        color: var(--ink2);
+        transition: all 0.2s;
+      }
+      .modal-close:hover {
+        background: var(--ink);
+        color: #fff;
+      }
+      .modal-img {
+        width: 100%;
+        height: 200px;
+        background: var(--bg2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+      .modal-title {
+        font-family: var(--f-display);
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .modal-body p {
+        font-size: 0.9rem;
+        color: var(--ink2);
+        line-height: 1.75;
+        margin-bottom: 12px;
+      }
+      .modal-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+      }
+      .timeline {
+        position: relative;
+        padding-left: 32px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 48px;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -37px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 2px solid var(--bg);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+      }
+      .tl-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+      }
+      .tl-role {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .tl-date {
+        font-family: var(--f-mono);
+        font-size: 0.7rem;
+        color: var(--ink3);
+        white-space: nowrap;
+        padding-top: 3px;
+      }
+      .tl-org {
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+      .tl-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .tl-list li {
+        font-size: 0.84rem;
+        color: var(--ink2);
+        padding-left: 16px;
+        position: relative;
+        line-height: 1.6;
+      }
+      .tl-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--ink3);
+      }
+      .skills-wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .skill-cat {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 24px;
+        transition:
+          background 0.4s,
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .skill-cat:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 24px var(--shadow);
+      }
+      .skill-cat-title {
+        font-family: var(--f-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink3);
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+      .skill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .skill-name {
+        font-size: 0.82rem;
+        color: var(--ink2);
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+      .skill-bar {
+        height: 3px;
+        background: var(--bg3);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .skill-fill {
+        height: 100%;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--teal));
+        width: 0%;
+        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .ach-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .ach-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 28px 32px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        transition:
+          background 0.4s,
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .ach-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 36px var(--shadow-md);
+      }
+      .ach-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+      }
+      .ach-card:hover .ach-icon {
+        transform: scale(1.12) rotate(-5deg);
+      }
+      .ach-icon svg {
+        width: 26px;
+        height: 26px;
+      }
+      .ach-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 4px;
+      }
+      .ach-sub {
+        font-size: 0.82rem;
+        color: var(--ink3);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px;
+        gap: 12px;
+      }
+      .gallery-item {
+        background: var(--bg2);
+        border-radius: var(--r);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .gallery-item:nth-child(1) {
+        grid-row: span 2;
+      }
+      .gallery-item:nth-child(4) {
+        grid-row: span 2;
+      }
+      .gallery-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 28px var(--shadow-md);
+      }
+      .gallery-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--ink3);
+        font-family: var(--f-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      }
+      .gallery-placeholder svg {
+        width: 36px;
+        height: 36px;
+        opacity: 0.3;
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        opacity: 0;
+        transition: opacity 0.2s;
+        padding: 16px;
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .gallery-caption {
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      .gallery-tag {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.7rem;
+        font-family: var(--f-mono);
+      }
+      .gallery-item.ghidden {
+        display: none;
+      }
+      .gallery-filter {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+      }
+      .contact-info p {
+        color: var(--ink2);
+        line-height: 1.75;
+        font-size: 0.97rem;
+        margin-bottom: 28px;
+      }
+      .contact-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .clink {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        border-radius: var(--r);
+        background: var(--card);
+        border: 1px solid var(--border);
+        text-decoration: none;
+        color: var(--ink);
+        transition: all 0.22s;
+      }
+      .clink:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        transform: translateX(5px);
+      }
+      .clink-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: var(--bg2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .clink-icon svg {
+        width: 18px;
+        height: 18px;
+        color: var(--accent);
+      }
+      .clink-label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--ink3);
+        font-family: var(--f-mono);
+      }
+      .clink-val {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .contact-section {
+        background: var(--card);
+        transition: background 0.4s;
+      }
+      footer {
+        background: var(--ink);
+        color: rgba(255, 255, 255, 0.35);
+        padding: 32px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background 0.4s;
+      }
+      .footer-brand {
+        font-family: var(--f-display);
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 400;
+      }
+      .footer-tag {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 2px;
+      }
+      .footer-copy {
+        font-size: 0.74rem;
+        font-family: var(--f-mono);
+      }
+      .footer-social {
+        display: flex;
+        gap: 10px;
+      }
+      .fsoc {
+        width: 34px;
+        height: 34px;
+        border-radius: 7px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all 0.2s;
+      }
+      .fsoc:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+      .fsoc svg {
+        width: 16px;
+        height: 16px;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .reveal.vis {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-child > * {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .reveal-child.vis > * {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 1100px) {
+        .hero-illustration {
+          display: none;
+        }
+        .skills-wrap {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-grid {
+          grid-template-columns: 260px 1fr;
+          gap: 48px;
+        }
+      }
+      @media (max-width: 900px) {
+        nav {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        section {
+          padding: 72px 24px;
+        }
+        .hero {
+          padding: 96px 24px 72px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .about-portrait {
+          max-width: 240px;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pub-card {
+          grid-template-columns: 1fr;
+        }
+        .pub-img {
+          min-height: 120px;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .contact-inner {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .ach-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-rows: 160px;
+        }
+        footer {
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+          padding: 24px;
+        }
+      }
+      @media (max-width: 600px) {
+        section {
+          padding: 56px 18px;
+        }
+        .hero {
+          padding: 80px 18px 60px;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-wrap {
+          grid-template-columns: 1fr;
+        }
+        .ach-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <header class="header">
-      <div class="header__content">
-        <div class="header__logo-container">
-          <span class="header__logo-sub">Anushree Bhuskute</span>
-        </div>
-        <div class="header__main">
-          <ul class="header__links">
-            <li class="header__link-wrapper">
-              <a href="./index.html" class="header__link"> Home </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#about" class="header__link">About </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#projects" class="header__link">
-                Projects
-              </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#contact" class="header__link">
-                Blogs
-              </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="#footer" class="header__link"> Contact </a>
-            </li>
-          </ul>
-          <div class="header__main-ham-menu-cont">
-            <img
-              src="hamburger.png"
-              alt="hamburger menu"
-              class="header__main-ham-menu"
+    <nav>
+      <a class="nav-logo" href="#">Anushree Bhuskute</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <!-- <li><a href="#creative">Creative</a></li> -->
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button
+          class="theme-pill"
+          id="themeToggle"
+          aria-label="Toggle theme"
+        ></button>
+        <a
+          href="https://github.com/Anushree-B"
+          target="_blank"
+          class="nav-icon-btn"
+          title="GitHub"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.218.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.09-.646.349-1.086.635-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
             />
-            <img
-              src="./assets/svg/ham-menu-close.svg"
-              alt="hamburger menu close"
-              class="header__main-ham-menu-close d-none"
+          </svg>
+        </a>
+        <a
+          href="https://linkedin.com/in/anushree-bhuskute"
+          target="_blank"
+          class="nav-icon-btn"
+          title="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
             />
-          </div>
-        </div>
+          </svg>
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1GTcDP2QpFpxxUqFI34Fh7Xl55wFA1eO1/view?usp=sharing"
+          class="btn btn-primary"
+          style="padding: 7px 18px; font-size: 0.74rem"
+          target="_blank"
+          >Resume</a
+        >
       </div>
-      <div class="header__sm-menu">
-        <div class="header__sm-menu-content">
-          <ul class="header__sm-menu-links">
-            <li class="header__sm-menu-link">
-              <a href="./index.html"> Home </a>
-            </li>
+    </nav>
 
-            <li class="header__sm-menu-link">
-              <a href="./index.html#about"> About </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="./index.html#projects"> Projects </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="./index.html#contact"> Blogs </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="#footer"> Contact </a>
-            </li>
-          </ul>
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="hero-inner">
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot"></span>AI Researcher &amp; Data
+          Scientist
         </div>
-      </div>
-    </header>
-    <section class="home-hero">
-      <div class="home-hero__content">
-        <h1 class="heading-primary">Hey, My name is Anushree.</h1>
-        <div class="home-hero__info">
-          <p class="text-primary">
-            Innovative | Analytical | Data-driven | Problem solver
-          </p>
-        </div>
-        <div class="home-hero__cta">
-          <a href="https://drive.google.com/file/d/1sSxcKNxaCnjFQJgehPD15z0T29PQl6mr/view?usp=drive_link" class="btn btn--bg">Resume</a>
-        </div>
-      </div>
-      <div class="home-hero__socials">
-        <div class="home-hero__social">
-          <a href="https://www.linkedin.com/in/anushree-bhuskute" class="home-hero__social-icon-link">
-            <img
-              src="linkedin-ico.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-        <div class="home-hero__social">
-          <a href="https://github.com/Anushree-B" class="home-hero__social-icon-link">
-            <img
-              src="github-ico.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-        <div class="home-hero__social">
-          <a href="https://www.kaggle.com/anushreebhuskute" class="home-hero__social-icon-link">
-            <img
-              src="kaggle.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-        <div class="home-hero__social">
+        <h1 class="hero-name">Hi, I'm<br /><em>Anushree</em><br />Bhuskute</h1>
+        <p class="hero-role">
+          <span class="typed-txt" id="typed"></span><span class="caret"></span>
+        </p>
+        <p class="hero-desc">
+          I design and build machine learning systems that integrate computer
+          vision, language models, and data-driven analytics. My research spans
+          satellite-based economic prediction, weather forecasting models,
+          multilingual AI platforms, and interactive AI tools.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#research" class="btn btn-teal">View Research</a>
           <a
-            href="https://medium.com/@anushreebhuskute"
-            class="home-hero__social-icon-link home-hero__social-icon-link--bd-none"
+            href="https://drive.google.com/file/d/1GTcDP2QpFpxxUqFI34Fh7Xl55wFA1eO1/view?usp=sharing"
+            class="btn btn-outline"
+            target="_blank"
+            >Download Resume</a
           >
-            <img
-              src="medium.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
+          <a href="#contact" class="btn btn-outline">Contact</a>
         </div>
       </div>
-      <div class="home-hero__mouse-scroll-cont">
-        <div class="mouse"></div>
+      <div class="hero-illustration" aria-hidden="true">
+        <svg
+          viewBox="0 0 500 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="250"
+            cy="250"
+            r="200"
+            stroke="var(--border)"
+            stroke-width="1"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="140"
+            stroke="var(--border)"
+            stroke-width="1"
+          />
+          <circle
+            cx="250"
+            cy="250"
+            r="80"
+            stroke="var(--border)"
+            stroke-width="1"
+          />
+          <circle cx="250" cy="50" r="8" fill="var(--accent)" opacity=".7" />
+          <circle cx="430" cy="150" r="6" fill="var(--teal)" opacity=".6" />
+          <circle cx="430" cy="350" r="8" fill="var(--accent)" opacity=".5" />
+          <circle cx="250" cy="450" r="6" fill="var(--teal)" opacity=".7" />
+          <circle cx="70" cy="350" r="8" fill="var(--accent)" opacity=".6" />
+          <circle cx="70" cy="150" r="6" fill="var(--teal)" opacity=".5" />
+          <circle cx="250" cy="250" r="20" fill="var(--accent)" opacity=".15" />
+          <circle cx="250" cy="250" r="10" fill="var(--accent)" opacity=".4" />
+          <line
+            x1="250"
+            y1="50"
+            x2="430"
+            y2="150"
+            stroke="var(--accent)"
+            stroke-width="1"
+            opacity=".2"
+          />
+          <line
+            x1="430"
+            y1="150"
+            x2="430"
+            y2="350"
+            stroke="var(--teal)"
+            stroke-width="1"
+            opacity=".2"
+          />
+          <line
+            x1="430"
+            y1="350"
+            x2="250"
+            y2="450"
+            stroke="var(--accent)"
+            stroke-width="1"
+            opacity=".2"
+          />
+          <line
+            x1="250"
+            y1="450"
+            x2="70"
+            y2="350"
+            stroke="var(--teal)"
+            stroke-width="1"
+            opacity=".2"
+          />
+          <line
+            x1="70"
+            y1="350"
+            x2="70"
+            y2="150"
+            stroke="var(--accent)"
+            stroke-width="1"
+            opacity=".2"
+          />
+          <line
+            x1="70"
+            y1="150"
+            x2="250"
+            y2="50"
+            stroke="var(--teal)"
+            stroke-width="1"
+            opacity=".2"
+          />
+        </svg>
       </div>
     </section>
-    <section id="about" class="about sec-pad">
-      <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main">About Me</span>
-          <span class="heading-sec__sub">
-            I am Anushree, a Computer Science graduate with a 9.97 CGPA, now pursuing a Masters in Data Science. I specialize in data-driven problem-solving, with experience in machine learning and deep learning.
-          </span>
-        </h2>
-        <div class="about__content">
-          <div class="about__content-main">
-            <h3 class="about__content-title">Get to know me!</h3>
-            <div class="about__content-details">
-              <p class="about__content-details-para">
-                Driven by a passion for uncovering insights through data, I blend technical expertise with a commitment to continuous learning. My projects reflect a dedication to innovation, leveraging my analytical skills to solve complex problems. I thrive in dynamic environments where I can collaborate with like-minded individuals to push the boundaries of technology. Beyond my technical pursuits, I enjoy exploring new horizons and connecting with fellow enthusiasts in the tech landscape. My journey is fueled by a relentless curiosity and a desire to make a meaningful impact through the power of data.
-              </p>
-            </div>
-          </div>
-          <div class="about__content-skills">
-            <h3 class="about__content-title">My Skills</h3>
-            <div class="skills">
-              <div class="skills__skill">Data Analysis</div>
-              <div class="skills__skill">Python</div>
-              <div class="skills__skill">Machine learning</div>
-              <div class="skills__skill">Deep learning</div>
-              <div class="skills__skill">Web Scraping</div>
-              <div class="skills__skill">Data Visualisation</div>
-              <div class="skills__skill">Tableau</div>
-              <div class="skills__skill">MS Excel</div>
-              <div class="skills__skill">C</div>
-              <div class="skills__skill">Html</div>
-              <div class="skills__skill">CSS</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="projects" class="projects sec-pad">
-      <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-bg">
-          <span class="heading-sec__main">Projects</span>
-          <span class="heading-sec__sub">
-            Here are some of the key projects I have worked on, showcasing my skills in data science, machine learning, and web development
-          </span>
-        </h2>
+    <div class="sec-divider"></div>
 
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
+    <section id="about">
+      <div class="container">
+        <span class="sec-tag">// About</span>
+        <div class="about-grid reveal">
+          <div>
+            <div class="about-portrait">
               <img
-                src="project 2.2.png"
-                alt="Math talk Screenshot"
-                class="projects__row-img"
-                loading="lazy"
+                src="anushree_potrait.jpg"
+                alt="Anushree Bhuskute"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
               />
             </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Math Talk: A Speech to Symbol Approach</h3>
-              <p class="projects__row-content-desc">
-                I developed a speech recognition system using Python to transcribe spoken mathematical symbols, including Greek, Roman, and various others. Scraping over 200 symbols from the web, I trained a model to accurately convert speech to math symbols, challenging traditional input methods. Deploying the system on a local host using Streamlit, I explored new avenues in speech-to-text technology, enhancing accessibility to mathematical notation through innovative machine learning approaches.
-
-              </p>
-              <a
-                href="https://mathtalk-app.streamlit.app/"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >MathTalk website</a>
-            </div>
           </div>
-          <div class="projects__row">
-            
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Political speech lie detection</h3>
-              <p class="projects__row-content-desc">
-                I developed a system using Python, NLTK, and neural networks to detect lies in political speeches. Starting with a dataset of <strong> 14,400 quotes scraped </strong> from PolitiFact.com, labeled for truthfulness, I analyzed various features including sentence length, part-of-speech distribution, sentiment, and vocabulary choice. Training the model improved accuracy to 67%,<strong> a 15% - 17% increase over the baseline</strong>. Additionally, I <strong>deployed the model on a cloud platform</strong> for scalability and accessibility.
+          <div class="about-right">
+            <h2 class="sec-title">Building AI at the<br />edge of science</h2>
+            <div class="about-bio">
+              <p>
+                I'm an AI researcher and data scientist working at the
+                intersection of
+                <strong
+                  >machine learning, remote sensing, and interactive AI
+                  systems</strong
+                >.
               </p>
-<a
-                href="https://github.com/Anushree-B/Lie-detector"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >Github link</a
-              >
-            </div>
-            <div class="projects__row-img-cont">
-              <img
-                src="project 1.1.png"
-                alt="truth lie Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />s
-            </div>
-          </div>
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img
-                src="project 3.png"
-                alt="hand gesture Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Cursor control using hand gesture</h3>
-              <p class="projects__row-content-desc">
-                Utilizing Python, OpenCV, and MediaPipe, I developed a real-time cursor control system based on hand gestures. By accurately estimating hand poses and classifying gestures, I automated cursor movements, enhancing user interaction with computers. This project not only improved my proficiency in computer vision and gesture recognition but also deepened my understanding of Python programming and its application in innovative HCI (Human-Computer Interaction) solutions.
+              <p>
+                Currently a
+                <strong
+                  >Research Associate at the Centre for Interdisciplinary AI,
+                  FLAME University</strong
+                >, where I design and deploy agentic AI systems, multi-modal
+                models, and satellite-based prediction pipelines. I hold an
+                <strong>MSc in Data Science from Fergusson College</strong>
+                (CGPA 9.81) and founded the Fergusson College Data Science Club.
               </p>
-              <a
-                href="https://github.com/Anushree-B/Cursor-control---mini-project"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >Github link</a
-              >
-            </div>
-          </div>
-          <div class="projects__row">
-            
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">WebShala : Website Interface Design</h3>
-              <p class="projects__row-content-desc">
-                I led the development of WebShala, a user-friendly website designed with HTML, CSS, and JavaScript for an engaging interface. Using PHP and PostgreSQL, I managed data storage and retrieval, ensuring seamless functionality. Working collaboratively, I improved my skills in frontend design, backend integration, and teamwork to deliver an intuitive platform tailored to diverse user needs.
+              <p>
+                My research spans weather forecasting, socio-economic analysis
+                from satellite imagery, multilingual AI learning systems, and
+                human-AI interaction.
               </p>
             </div>
-            <div class="projects__row-img-cont">
-              <img
-                src="project 4.jpg"
-                alt="webshala Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />
+            <div class="stats-grid reveal-child">
+              <div class="stat-box">
+                <div class="stat-num" data-target="5">0+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" data-target="2">0</div>
+                <div class="stat-label">Publications</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" data-target="2">0</div>
+                <div class="stat-label">Awards Won</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" data-target="2">0</div>
+                <div class="stat-label">Years Research</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="contact" class="contact sec-pad dynamicBg">
-      <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main heading-sec__main--lt">Blogs</span>
-          <span class="heading-sec__sub heading-sec__sub--lt">
-            Explore my thoughts and findings in these engaging blog entries.
-          </span>
-        </h2>
-        <div class="blog_content">
-              <h3 class="projects__row-content-title">Overcoming challenges in Imbalanced Dataset</h3>
-              <p class="projects__row-content-desc">
-                Explore my insights on overcoming challenges posed by imbalanced datasets in machine learning. Discover effective strategies such as resampling methods and algorithmic approaches to enhance model performance and reliability.
-              </p>
-              <a
-                href="https://medium.com/@anushreebhuskute/overcoming-challenges-in-imbalanced-datasets-6a1494d08f55"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >Read full article</a
+    <div class="sec-divider"></div>
+
+    <section id="research">
+      <div class="container">
+        <span class="sec-tag">// Research &amp; Publications</span>
+        <h2 class="sec-title">Published Work</h2>
+        <div class="pub-list reveal">
+          <div class="pub-card">
+            <div class="pub-img">
+              <svg
+                viewBox="0 0 200 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
               >
+                <rect width="200" height="160" fill="#e8f4f9" />
+                <g stroke="#b0d4e8" stroke-width="0.4" opacity="0.5">
+                  <line x1="25" y1="0" x2="25" y2="160" />
+                  <line x1="50" y1="0" x2="50" y2="160" />
+                  <line x1="75" y1="0" x2="75" y2="160" />
+                  <line x1="100" y1="0" x2="100" y2="160" />
+                  <line x1="125" y1="0" x2="125" y2="160" />
+                  <line x1="150" y1="0" x2="150" y2="160" />
+                  <line x1="175" y1="0" x2="175" y2="160" />
+                  <line x1="0" y1="32" x2="200" y2="32" />
+                  <line x1="0" y1="64" x2="200" y2="64" />
+                  <line x1="0" y1="96" x2="200" y2="96" />
+                  <line x1="0" y1="128" x2="200" y2="128" />
+                </g>
+                <ellipse
+                  cx="88"
+                  cy="76"
+                  rx="44"
+                  ry="28"
+                  fill="#1a7ab5"
+                  opacity="0.2"
+                />
+                <ellipse
+                  cx="94"
+                  cy="74"
+                  rx="28"
+                  ry="20"
+                  fill="#0f5c8a"
+                  opacity="0.24"
+                />
+                <ellipse
+                  cx="90"
+                  cy="76"
+                  rx="17"
+                  ry="11"
+                  fill="#0f5c8a"
+                  opacity="0.32"
+                />
+                <ellipse
+                  cx="90"
+                  cy="76"
+                  rx="50"
+                  ry="34"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="1"
+                  opacity="0.45"
+                />
+                <ellipse
+                  cx="90"
+                  cy="76"
+                  rx="34"
+                  ry="24"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+                <ellipse
+                  cx="90"
+                  cy="76"
+                  rx="18"
+                  ry="12"
+                  fill="none"
+                  stroke="#0f5c8a"
+                  stroke-width="1.5"
+                  opacity="0.6"
+                />
+                <path
+                  d="M16 16 Q100 4 184 18"
+                  stroke="#0d7c6e"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-dasharray="4,3"
+                  opacity="0.6"
+                />
+                <circle cx="155" cy="18" r="4.5" fill="#0d7c6e" opacity="0.8" />
+                <line
+                  x1="155"
+                  y1="18"
+                  x2="148"
+                  y2="32"
+                  stroke="#0d7c6e"
+                  stroke-width="0.9"
+                  opacity="0.6"
+                />
+                <line
+                  x1="155"
+                  y1="18"
+                  x2="162"
+                  y2="32"
+                  stroke="#0d7c6e"
+                  stroke-width="0.9"
+                  opacity="0.6"
+                />
+                <circle
+                  cx="168"
+                  cy="132"
+                  r="18"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="0.7"
+                  opacity="0.32"
+                />
+                <circle
+                  cx="168"
+                  cy="132"
+                  r="11"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="0.7"
+                  opacity="0.38"
+                />
+                <circle cx="168" cy="132" r="5" fill="#0f5c8a" opacity="0.2" />
+                <line
+                  x1="168"
+                  y1="132"
+                  x2="178"
+                  y2="122"
+                  stroke="#0f5c8a"
+                  stroke-width="1.1"
+                  opacity="0.5"
+                />
+                <rect
+                  x="4"
+                  y="142"
+                  width="86"
+                  height="14"
+                  rx="3"
+                  fill="#fef3c7"
+                />
+                <text
+                  x="8"
+                  y="153"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#854d0e"
+                  font-weight="700"
+                >
+                  &#9733; 2nd Place NeurIPS
+                </text>
+              </svg>
             </div>
-	        <div class="blog_content">
-              <h3 class="projects__row-content-title">Generative Adversarial Networks: The Science Behind Real or Fake</h3>
-              <p class="projects__row-content-desc">
-                Delve into the science of Generative Adversarial Networks (GANs) through my detailed exploration. Learn about GANs' architecture, applications in generating realistic data, and their transformative impact across various industries from art to medicine.
-              </p>
-              <a
-                href="https://medium.com/@anushreebhuskute/generative-adversarial-networks-the-science-behind-real-or-fake-7bc1552f0098"
-                class="btn btn--med btn--theme dynamicBgClr"
-                target="_blank"
-                >Read full article</a
-              >
-            </div>
-      </div>
-    </section>
-    <footer class="main-footer">
-      <div class="main-container", id="footer">
-        <div class="main-footer__upper">
-          <div class="main-footer__row main-footer__row-1">
-            <h2 class="heading heading-sm main-footer__heading-sm">
-              <span>Social</span>
-            </h2>
-            <div class="main-footer__social-cont">
-              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/anushree-bhuskute">
-                <img
-                  class="main-footer__icon"
-                  src="linkedin-ico.png"
-                  alt="icon"
-                />
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://github.com/Anushree-B">
-                <img
-                  class="main-footer__icon"
-                  src="github-ico.png"
-                  alt="icon"
-                />
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://medium.com/@anushreebhuskute">
-                <img
-                  class="main-footer__icon"
-                  src="medium.png"
-                  alt="icon"
-                />
-              </a>
-              <a target="_blank" rel="noreferrer" href="https://www.kaggle.com/anushreebhuskute">
-                <img
-                  class="main-footer__icon"
-                  src="kaggle.png"
-                  alt="icon"
-                />
-              </a>
-              </a>
+            <div class="pub-body">
+              <div class="pub-venue">NeurIPS 2025 — Weather4Cast</div>
+              <div class="pub-title">
+                Computationally-efficient Deep Learning Models for Nowcasting of
+                Precipitation
+              </div>
+              <div class="pub-abstract">
+                A ConvGRU-based deep learning architecture for precipitation
+                nowcasting using multi-spectral satellite imagery. Ranked 2nd
+                globally in the NeurIPS Weather4Cast 2025 benchmark challenge.
+              </div>
+              <div class="pub-expand" id="pub1-expand">
+                <p>
+                  <strong>Abstract:</strong> ConvGRU encoder-decoder with
+                  cross-domain transfer learning achieving 2nd place globally,
+                  demonstrating strong generalization across European sensor
+                  configurations.
+                </p>
+              </div>
+              <div class="pub-actions">
+                <a
+                  href="https://arxiv.org/pdf/2511.11197"
+                  target="_blank"
+                  class="pub-btn"
+                  >View Paper</a
+                >
+                <a
+                  href="https://github.com/flame-cai/w4c25_rainfall"
+                  target="_blank"
+                  class="pub-btn"
+                  >View Code</a
+                >
+                <button
+                  class="pub-expand-btn"
+                  onclick="togglePub('pub1-expand', this)"
+                >
+                  Show Details
+                </button>
+              </div>
             </div>
           </div>
-          <div class="main-footer__row main-footer__row-2">
-            <h4 class="heading heading-sm text-lt">Anushree Bhuskute</h4>
-            <p class="main-footer__short-desc">
-              Email : anushreebhuskute@gmail.com
-	    </p>
-            <p class="main-footer__short-desc">
-              Address : Pune, Maharashtra
+          <div class="pub-card">
+            <div class="pub-img">
+              <svg
+                viewBox="0 0 200 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <rect width="200" height="160" fill="#f0f7ff" />
+                <rect
+                  x="8"
+                  y="10"
+                  width="184"
+                  height="20"
+                  rx="4"
+                  fill="white"
+                  stroke="#0f5c8a"
+                  stroke-width="0.8"
+                  opacity="0.8"
+                />
+                <text
+                  x="13"
+                  y="24"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#999"
+                >
+                  User:
+                </text>
+                <text
+                  x="35"
+                  y="24"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#0f5c8a"
+                >
+                  Bonjour! Comment vas-tu?
+                </text>
+                <rect
+                  x="8"
+                  y="36"
+                  width="164"
+                  height="20"
+                  rx="4"
+                  fill="#dbeafe"
+                  stroke="#0f5c8a"
+                  stroke-width="0.7"
+                  opacity="0.9"
+                />
+                <text
+                  x="13"
+                  y="50"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#999"
+                >
+                  AI:
+                </text>
+                <text
+                  x="28"
+                  y="50"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#0f5c8a"
+                >
+                  Parfait! Let us practice...
+                </text>
+                <rect
+                  x="8"
+                  y="62"
+                  width="164"
+                  height="20"
+                  rx="4"
+                  fill="white"
+                  stroke="#0d7c6e"
+                  stroke-width="0.8"
+                  opacity="0.8"
+                />
+                <text
+                  x="13"
+                  y="76"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#999"
+                >
+                  AI:
+                </text>
+                <text
+                  x="28"
+                  y="76"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#0d7c6e"
+                >
+                  Tip: add subject pronoun
+                </text>
+                <rect
+                  x="8"
+                  y="88"
+                  width="164"
+                  height="20"
+                  rx="4"
+                  fill="#dbeafe"
+                  stroke="#0f5c8a"
+                  stroke-width="0.7"
+                />
+                <text
+                  x="13"
+                  y="102"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#888"
+                >
+                  DE:
+                </text>
+                <text
+                  x="28"
+                  y="102"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#0f5c8a"
+                >
+                  Wie geht es Ihnen?
+                </text>
+                <rect
+                  x="8"
+                  y="116"
+                  width="130"
+                  height="8"
+                  rx="3"
+                  fill="#e0e0e0"
+                />
+                <rect
+                  x="8"
+                  y="116"
+                  width="96"
+                  height="8"
+                  rx="3"
+                  fill="#0d7c6e"
+                  opacity="0.5"
+                />
+                <text
+                  x="8"
+                  y="136"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#0d7c6e"
+                >
+                  Fluency: 74% Level: A2&#8594;B1
+                </text>
+                <rect
+                  x="8"
+                  y="142"
+                  width="184"
+                  height="14"
+                  rx="4"
+                  fill="#f0fdf4"
+                  stroke="#0d7c6e"
+                  stroke-width="0.7"
+                />
+                <text
+                  x="12"
+                  y="153"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#0d7c6e"
+                  font-weight="600"
+                >
+                  Adaptive AI &#183; FR + DE &#183; AIET 2025
+                </text>
+              </svg>
+            </div>
+            <div class="pub-body">
+              <div class="pub-venue">AIET Conference 2025</div>
+              <div class="pub-title">
+                An Adaptive AI Tool for Introductory French and German Courses
+              </div>
+              <div class="pub-abstract">
+                An AI-driven language learning system supporting personalized
+                practice through conversational interaction, adaptive
+                scaffolding, and multilingual response generation.
+              </div>
+              <div class="pub-expand" id="pub2-expand">
+                <p>
+                  <strong>Abstract:</strong> Multi-agent architecture with
+                  adaptive difficulty scaffolding and evaluation framework for
+                  AI-assisted language learning.
+                </p>
+              </div>
+              <div class="pub-actions">
+                <a
+                  href="https://flame-cai.github.io/ai_exam/"
+                  target="_blank"
+                  class="pub-btn"
+                  >View Tool</a
+                >
+                <button
+                  class="pub-expand-btn"
+                  onclick="togglePub('pub2-expand', this)"
+                >
+                  Show Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="sec-divider"></div>
+
+    <section
+      id="projects"
+      style="background: var(--card); transition: background 0.4s"
+    >
+      <div class="container">
+        <span class="sec-tag">// Projects</span>
+        <h2 class="sec-title">Selected Work</h2>
+        <div class="filter-row reveal">
+          <button class="f-btn on" data-f="all">All</button>
+          <button class="f-btn" data-f="ml">Machine Learning</button>
+          <button class="f-btn" data-f="rs">Remote Sensing</button>
+          <button class="f-btn" data-f="cv">Computer Vision</button>
+          <button class="f-btn" data-f="nlp">NLP / AI</button>
+          <button class="f-btn" data-f="sys">Systems</button>
+        </div>
+        <div class="proj-grid" id="projGrid">
+          <div class="proj-card" data-cats="ml rs cv" data-id="p1">
+            <div class="proj-thumb">
+              <svg
+                viewBox="0 0 400 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <rect width="400" height="160" fill="#e8f4f9" />
+                <g stroke="#b0d4e8" stroke-width="0.5" opacity="0.5">
+                  <line x1="50" y1="0" x2="50" y2="160" />
+                  <line x1="100" y1="0" x2="100" y2="160" />
+                  <line x1="150" y1="0" x2="150" y2="160" />
+                  <line x1="200" y1="0" x2="200" y2="160" />
+                  <line x1="250" y1="0" x2="250" y2="160" />
+                  <line x1="300" y1="0" x2="300" y2="160" />
+                  <line x1="350" y1="0" x2="350" y2="160" />
+                  <line x1="0" y1="40" x2="400" y2="40" />
+                  <line x1="0" y1="80" x2="400" y2="80" />
+                  <line x1="0" y1="120" x2="400" y2="120" />
+                </g>
+                <ellipse
+                  cx="155"
+                  cy="75"
+                  rx="68"
+                  ry="42"
+                  fill="#1a7ab5"
+                  opacity="0.18"
+                />
+                <ellipse
+                  cx="185"
+                  cy="80"
+                  rx="48"
+                  ry="32"
+                  fill="#0f5c8a"
+                  opacity="0.24"
+                />
+                <ellipse
+                  cx="170"
+                  cy="76"
+                  rx="28"
+                  ry="18"
+                  fill="#0f5c8a"
+                  opacity="0.32"
+                />
+                <ellipse
+                  cx="170"
+                  cy="76"
+                  rx="75"
+                  ry="50"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="1"
+                  opacity="0.4"
+                />
+                <ellipse
+                  cx="170"
+                  cy="76"
+                  rx="52"
+                  ry="36"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+                <ellipse
+                  cx="170"
+                  cy="76"
+                  rx="30"
+                  ry="20"
+                  fill="none"
+                  stroke="#0f5c8a"
+                  stroke-width="1.5"
+                  opacity="0.6"
+                />
+                <path
+                  d="M30 18 Q200 2 370 20"
+                  stroke="#0d7c6e"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-dasharray="5,4"
+                  opacity="0.55"
+                />
+                <circle cx="310" cy="19" r="5" fill="#0d7c6e" opacity="0.7" />
+                <line
+                  x1="310"
+                  y1="19"
+                  x2="302"
+                  y2="36"
+                  stroke="#0d7c6e"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+                <line
+                  x1="310"
+                  y1="19"
+                  x2="318"
+                  y2="36"
+                  stroke="#0d7c6e"
+                  stroke-width="1"
+                  opacity="0.5"
+                />
+                <circle
+                  cx="355"
+                  cy="130"
+                  r="22"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="0.8"
+                  opacity="0.3"
+                />
+                <circle
+                  cx="355"
+                  cy="130"
+                  r="14"
+                  fill="none"
+                  stroke="#1a7ab5"
+                  stroke-width="0.8"
+                  opacity="0.35"
+                />
+                <circle cx="355" cy="130" r="6" fill="#0f5c8a" opacity="0.22" />
+                <line
+                  x1="355"
+                  y1="130"
+                  x2="368"
+                  y2="117"
+                  stroke="#0f5c8a"
+                  stroke-width="1.2"
+                  opacity="0.5"
+                />
+                <rect
+                  x="6"
+                  y="6"
+                  width="130"
+                  height="16"
+                  rx="3"
+                  fill="#0f5c8a"
+                  opacity="0.1"
+                />
+                <text
+                  x="10"
+                  y="18"
+                  font-family="monospace"
+                  font-size="8"
+                  fill="#0f5c8a"
+                  font-weight="600"
+                >
+                  NeurIPS · Weather4Cast 2025
+                </text>
+                <rect
+                  x="290"
+                  y="138"
+                  width="104"
+                  height="16"
+                  rx="3"
+                  fill="#fef3c7"
+                />
+                <text
+                  x="295"
+                  y="150"
+                  font-family="monospace"
+                  font-size="8"
+                  fill="#854d0e"
+                  font-weight="700"
+                >
+                  &#9733; 2nd Place Global
+                </text>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">Weather4Cast 2025 Challenge</div>
+              <div class="proj-desc">
+                ConvGRU-based precipitation nowcasting with cascade forecasting
+                and spatial transfer learning from multi-spectral satellite
+                imagery.
+              </div>
+              <div class="proj-tags">
+                <span class="ptag ml">ConvGRU</span
+                ><span class="ptag rs">Satellite</span
+                ><span class="ptag ml">Transfer Learning</span>
+              </div>
+              <div class="proj-footer">
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    font-family: var(--f-mono);
+                    color: var(--ink3);
+                  "
+                  >NeurIPS 2025 — 2nd Place</span
+                >
+                <button class="proj-more" onclick="openModal('p1')">
+                  Details <span class="arrow">&#8594;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card" data-cats="rs ml cv" data-id="p2">
+            <div class="proj-thumb">
+              <svg
+                viewBox="0 0 400 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <rect width="400" height="160" fill="#edf7ee" />
+                <rect
+                  x="8"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#4caf50"
+                  opacity="0.32"
+                  rx="2"
+                />
+                <rect
+                  x="66"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#66bb6a"
+                  opacity="0.28"
+                  rx="2"
+                />
+                <rect
+                  x="124"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#388e3c"
+                  opacity="0.25"
+                  rx="2"
+                />
+                <rect
+                  x="182"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#1976d2"
+                  opacity="0.16"
+                  rx="2"
+                />
+                <rect
+                  x="240"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#81c784"
+                  opacity="0.28"
+                  rx="2"
+                />
+                <rect
+                  x="298"
+                  y="8"
+                  width="55"
+                  height="55"
+                  fill="#a5d6a7"
+                  opacity="0.24"
+                  rx="2"
+                />
+                <rect
+                  x="356"
+                  y="8"
+                  width="40"
+                  height="55"
+                  fill="#4caf50"
+                  opacity="0.18"
+                  rx="2"
+                />
+                <rect
+                  x="8"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#1976d2"
+                  opacity="0.16"
+                  rx="2"
+                />
+                <rect
+                  x="66"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#388e3c"
+                  opacity="0.28"
+                  rx="2"
+                />
+                <rect
+                  x="124"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#66bb6a"
+                  opacity="0.22"
+                  rx="2"
+                />
+                <rect
+                  x="182"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#4caf50"
+                  opacity="0.3"
+                  rx="2"
+                />
+                <rect
+                  x="240"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#2196f3"
+                  opacity="0.18"
+                  rx="2"
+                />
+                <rect
+                  x="298"
+                  y="66"
+                  width="55"
+                  height="55"
+                  fill="#43a047"
+                  opacity="0.24"
+                  rx="2"
+                />
+                <g stroke="#1976d2" stroke-width="0.4" opacity="0.2">
+                  <line x1="63" y1="0" x2="63" y2="160" />
+                  <line x1="121" y1="0" x2="121" y2="160" />
+                  <line x1="179" y1="0" x2="179" y2="160" />
+                  <line x1="237" y1="0" x2="237" y2="160" />
+                  <line x1="295" y1="0" x2="295" y2="160" />
+                  <line x1="353" y1="0" x2="353" y2="160" />
+                  <line x1="0" y1="63" x2="400" y2="63" />
+                  <line x1="0" y1="121" x2="400" y2="121" />
+                </g>
+                <rect
+                  x="8"
+                  y="128"
+                  width="384"
+                  height="26"
+                  rx="3"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <polyline
+                  points="14,148 60,142 106,138 152,133 198,136 244,128 290,125 336,130 382,126"
+                  stroke="#388e3c"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <polyline
+                  points="14,152 60,150 106,147 152,145 198,147 244,142 290,139 336,143 382,140"
+                  stroke="#1976d2"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-dasharray="3,2"
+                />
+                <text
+                  x="12"
+                  y="138"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#388e3c"
+                >
+                  GDP proxy prediction
+                </text>
+                <text
+                  x="180"
+                  y="138"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#1976d2"
+                >
+                  Landsat-8 bands
+                </text>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">Spatial Economic Growth Prediction</div>
+              <div class="proj-desc">
+                MLP and CNN models predicting village and district-level
+                socio-economic indicators using Landsat-8 multispectral
+                satellite imagery.
+              </div>
+              <div class="proj-tags">
+                <span class="ptag rs">Landsat-8</span
+                ><span class="ptag cv">CNN</span
+                ><span class="ptag ml">MLP</span>
+              </div>
+              <div class="proj-footer">
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    font-family: var(--f-mono);
+                    color: var(--ink3);
+                  "
+                  >Remote Sensing</span
+                >
+                <button class="proj-more" onclick="openModal('p2')">
+                  Details <span class="arrow">&#8594;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card" data-cats="cv sys" data-id="p3">
+            <div class="proj-thumb">
+              <svg
+                viewBox="0 0 400 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <rect width="400" height="160" fill="#0d1a0d" />
+                <g stroke="#00ff41" stroke-width="0.25" opacity="0.07">
+                  <line x1="0" y1="8" x2="400" y2="8" />
+                  <line x1="0" y1="16" x2="400" y2="16" />
+                  <line x1="0" y1="24" x2="400" y2="24" />
+                  <line x1="0" y1="32" x2="400" y2="32" />
+                  <line x1="0" y1="40" x2="400" y2="40" />
+                  <line x1="0" y1="48" x2="400" y2="48" />
+                  <line x1="0" y1="56" x2="400" y2="56" />
+                  <line x1="0" y1="64" x2="400" y2="64" />
+                  <line x1="0" y1="72" x2="400" y2="72" />
+                  <line x1="0" y1="80" x2="400" y2="80" />
+                  <line x1="0" y1="88" x2="400" y2="88" />
+                  <line x1="0" y1="96" x2="400" y2="96" />
+                  <line x1="0" y1="104" x2="400" y2="104" />
+                  <line x1="0" y1="112" x2="400" y2="112" />
+                  <line x1="0" y1="120" x2="400" y2="120" />
+                  <line x1="0" y1="128" x2="400" y2="128" />
+                  <line x1="0" y1="136" x2="400" y2="136" />
+                  <line x1="0" y1="144" x2="400" y2="144" />
+                  <line x1="0" y1="152" x2="400" y2="152" />
+                </g>
+                <ellipse
+                  cx="185"
+                  cy="94"
+                  rx="52"
+                  ry="26"
+                  fill="#1a3a1a"
+                  opacity="0.95"
+                />
+                <ellipse
+                  cx="204"
+                  cy="80"
+                  rx="19"
+                  ry="15"
+                  fill="#1a3a1a"
+                  opacity="0.95"
+                />
+                <ellipse
+                  cx="212"
+                  cy="73"
+                  rx="11"
+                  ry="9"
+                  fill="#1a3a1a"
+                  opacity="0.95"
+                />
+                <rect
+                  x="118"
+                  y="56"
+                  width="132"
+                  height="76"
+                  fill="none"
+                  stroke="#00ff41"
+                  stroke-width="1.8"
+                  opacity="0.9"
+                />
+                <polyline
+                  points="118,56 118,68"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="118,56 132,56"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="250,56 250,68"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="236,56 250,56"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="118,132 118,120"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="118,132 132,132"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="250,132 250,120"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <polyline
+                  points="236,132 250,132"
+                  stroke="#00ff41"
+                  stroke-width="3"
+                />
+                <rect
+                  x="118"
+                  y="44"
+                  width="88"
+                  height="15"
+                  rx="2"
+                  fill="#00ff41"
+                  opacity="0.9"
+                />
+                <text
+                  x="122"
+                  y="56"
+                  font-family="monospace"
+                  font-size="8.5"
+                  fill="#0a0f0a"
+                  font-weight="700"
+                >
+                  TIGER 97.3%
+                </text>
+                <circle cx="208" cy="72" r="2.5" fill="#ffdd00" opacity="0.9" />
+                <circle cx="217" cy="71" r="2.5" fill="#ffdd00" opacity="0.9" />
+                <rect
+                  x="268"
+                  y="8"
+                  width="124"
+                  height="38"
+                  rx="5"
+                  fill="#cc0000"
+                  opacity="0.9"
+                />
+                <text
+                  x="274"
+                  y="24"
+                  font-family="monospace"
+                  font-size="8.5"
+                  fill="white"
+                  font-weight="700"
+                >
+                  ALERT SENT
+                </text>
+                <text
+                  x="274"
+                  y="38"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="white"
+                  opacity="0.9"
+                >
+                  SMS via Twilio
+                </text>
+                <rect
+                  x="0"
+                  y="147"
+                  width="400"
+                  height="13"
+                  fill="#001500"
+                  opacity="0.9"
+                />
+                <text
+                  x="6"
+                  y="157"
+                  font-family="monospace"
+                  font-size="6.5"
+                  fill="#00ff41"
+                  opacity="0.85"
+                >
+                  YOLO v8 &#183; LIVE &#183; GEMINI API &#183; REALTIME DISPATCH
+                  ENABLED
+                </text>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">
+                Human&#8211;Wildlife Conflict Alert System
+              </div>
+              <div class="proj-desc">
+                YOLO-based real-time detection of tigers and leopards with
+                automated Twilio SMS alerts and Gemini API integration.
+              </div>
+              <div class="proj-tags">
+                <span class="ptag cv">YOLO</span
+                ><span class="ptag sys">Real-time</span
+                ><span class="ptag nlp">Gemini API</span>
+              </div>
+              <div class="proj-footer">
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    font-family: var(--f-mono);
+                    color: var(--ink3);
+                  "
+                  >Computer Vision</span
+                >
+                <button class="proj-more" onclick="openModal('p3')">
+                  Details <span class="arrow">&#8594;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card" data-cats="nlp sys" data-id="p4">
+            <!-- <div class="proj-thumb"><svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="400" height="160" fill="#f0f7ff"/><line x1="200" y1="45" x2="72" y2="92" stroke="#0f5c8a" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/><line x1="200" y1="45" x2="200" y2="92" stroke="#0d7c6e" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/><line x1="200" y1="45" x2="328" y2="92" stroke="#0f5c8a" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/><line x1="72" y1="128" x2="200" y2="152" stroke="#0f5c8a" stroke-width="1" opacity="0.2"/><line x1="200" y1="128" x2="200" y2="152" stroke="#0d7c6e" stroke-width="1" opacity="0.2"/><line x1="328" y1="128" x2="200" y2="152" stroke="#0f5c8a" stroke-width="1" opacity="0.2"/><circle cx="136" cy="68" r="3" fill="#0f5c8a" opacity="0.6"/><circle cx="200" cy="68" r="3" fill="#0d7c6e" opacity="0.6"/><circle cx="264" cy="68" r="3" fill="#0f5c8a" opacity="0.6"/><rect x="160" y="14" width="80" height="34" rx="8" fill="#0f5c8a" opacity="0.9"/><text x="200" y="30" font-family="monospace" font-size="8" fill="white" text-anchor="middle" font-weight="700">Orchestrator</text><text x="200" y="42" font-family="monospace" font-size="6.5" fill="white" text-anchor="middle" opacity="0.85">OpenAI Agents</text><rect x="20" y="92" width="104" height="36" rx="7" fill="white" stroke="#0f5c8a" stroke-width="1.5"/><text x="72" y="108" font-family="monospace" font-size="8" fill="#0f5c8a" text-anchor="middle" font-weight="700">Tutor Agent</text><text x="72" y="120" font-family="monospace" font-size="6.5" fill="#0f5c8a" text-anchor="middle" opacity="0.8">FR / DE Language</text><rect x="148" y="92" width="104" height="36" rx="7" fill="white" stroke="#0d7c6e" stroke-width="1.5"/><text x="200" y="108" font-family="monospace" font-size="8" fill="#0d7c6e" text-anchor="middle" font-weight="700">Turing Agent</text><text x="200" y="120" font-family="monospace" font-size="6.5" fill="#0d7c6e" text-anchor="middle" opacity="0.8">Human/AI Test</text><rect x="276" y="92" width="104" height="36" rx="7" fill="white" stroke="#0f5c8a" stroke-width="1.5"/><text x="328" y="108" font-family="monospace" font-size="8" fill="#0f5c8a" text-anchor="middle" font-weight="700">Eval Agent</text><text x="328" y="120" font-family="monospace" font-size="6.5" fill="#0f5c8a" text-anchor="middle" opacity="0.8">Feedback Loop</text><rect x="150" y="142" width="100" height="14" rx="5" fill="#e8f5f0" stroke="#0d7c6e" stroke-width="1"/><text x="200" y="153" font-family="monospace" font-size="7" fill="#0d7c6e" text-anchor="middle" font-weight="600">GCP + Firestore</text></svg></div> -->
+            <div class="proj-thumb">
+              <svg
+                viewBox="0 0 400 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <!-- Background -->
+                <rect width="400" height="160" fill="#f0f7ff" />
+
+                <!-- Chatbot 1 -->
+                <rect
+                  x="40"
+                  y="40"
+                  width="130"
+                  height="42"
+                  rx="8"
+                  fill="white"
+                  stroke="#0f5c8a"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="105"
+                  y="56"
+                  font-family="monospace"
+                  font-size="9"
+                  fill="#0f5c8a"
+                  text-anchor="middle"
+                  font-weight="700"
+                >
+                  Tutor Chatbot
+                </text>
+                <text
+                  x="105"
+                  y="70"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#0f5c8a"
+                  text-anchor="middle"
+                  opacity="0.8"
+                >
+                  FR / DE Language
+                </text>
+
+                <!-- Chatbot 2 -->
+                <rect
+                  x="230"
+                  y="40"
+                  width="130"
+                  height="42"
+                  rx="8"
+                  fill="white"
+                  stroke="#0d7c6e"
+                  stroke-width="1.5"
+                />
+                <text
+                  x="295"
+                  y="56"
+                  font-family="monospace"
+                  font-size="9"
+                  fill="#0d7c6e"
+                  text-anchor="middle"
+                  font-weight="700"
+                >
+                  Turing Chatbot
+                </text>
+                <text
+                  x="295"
+                  y="70"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#0d7c6e"
+                  text-anchor="middle"
+                  opacity="0.8"
+                >
+                  Human / AI Test
+                </text>
+
+                <!-- OpenAI Layer -->
+                <rect
+                  x="150"
+                  y="95"
+                  width="100"
+                  height="28"
+                  rx="7"
+                  fill="#0f5c8a"
+                  opacity="0.9"
+                />
+                <text
+                  x="200"
+                  y="112"
+                  font-family="monospace"
+                  font-size="8"
+                  fill="white"
+                  text-anchor="middle"
+                  font-weight="700"
+                >
+                  OpenAI API
+                </text>
+
+                <!-- Backend -->
+                <rect
+                  x="140"
+                  y="132"
+                  width="120"
+                  height="16"
+                  rx="6"
+                  fill="#e8f5f0"
+                  stroke="#0d7c6e"
+                  stroke-width="1"
+                />
+                <text
+                  x="200"
+                  y="144"
+                  font-family="monospace"
+                  font-size="7"
+                  fill="#0d7c6e"
+                  text-anchor="middle"
+                  font-weight="600"
+                >
+                  GCP + Firestore
+                </text>
+
+                <!-- Connections -->
+                <line
+                  x1="105"
+                  y1="82"
+                  x2="200"
+                  y2="95"
+                  stroke="#0f5c8a"
+                  stroke-width="1.5"
+                  stroke-dasharray="5,3"
+                />
+                <line
+                  x1="295"
+                  y1="82"
+                  x2="200"
+                  y2="95"
+                  stroke="#0d7c6e"
+                  stroke-width="1.5"
+                  stroke-dasharray="5,3"
+                />
+                <line
+                  x1="200"
+                  y1="123"
+                  x2="200"
+                  y2="132"
+                  stroke="#0d7c6e"
+                  stroke-width="1.2"
+                />
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">AI Interaction Platforms</div>
+              <div class="proj-desc">
+                Multi-agent systems including a Turing Test web app and adaptive
+                French&#8211;German language tutor, built with OpenAI agents,
+                Flask, GCP, and Firestore.
+              </div>
+              <div class="proj-tags">
+                <span class="ptag nlp">LLMs</span
+                ><span class="ptag sys">Multi-agent</span
+                ><span class="ptag sys">GCP</span>
+              </div>
+              <div class="proj-footer">
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    font-family: var(--f-mono);
+                    color: var(--ink3);
+                  "
+                  >Agentic AI</span
+                >
+                <button class="proj-more" onclick="openModal('p4')">
+                  Details <span class="arrow">&#8594;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card" data-cats="nlp ml sys" data-id="p5">
+            <div class="proj-thumb">
+              <svg
+                viewBox="0 0 400 160"
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+              >
+                <defs>
+                  <linearGradient id="mtbg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fdf4ff" />
+                    <stop offset="100%" stop-color="#f0f9ff" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="160" fill="url(#mtbg)" />
+                <g stroke="#7e22ce" stroke-width="2" fill="none" opacity="0.7">
+                  <polyline
+                    points=" 40,65 46,95 52,72 58,88 64,68 70,92 76,76 82,84 88,80 98,80"
+                  />
+                </g>
+                <rect
+                  x="14"
+                  y="44"
+                  width="18"
+                  height="26"
+                  rx="9"
+                  fill="#7e22ce"
+                  opacity="0.15"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="23"
+                  y1="70"
+                  x2="23"
+                  y2="78"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                />
+                <line
+                  x1="17"
+                  y1="78"
+                  x2="29"
+                  y2="78"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M17 62 Q17 76 23 76 Q29 76 29 62"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <line
+                  x1="108"
+                  y1="80"
+                  x2="148"
+                  y2="80"
+                  stroke="#0f5c8a"
+                  stroke-width="2"
+                  stroke-dasharray="4,3"
+                  opacity="0.6"
+                />
+                <polygon
+                  points="148,75 158,80 148,85"
+                  fill="#0f5c8a"
+                  opacity="0.6"
+                />
+                <rect
+                  x="102"
+                  y="68"
+                  width="62"
+                  height="14"
+                  rx="4"
+                  fill="#eff6ff"
+                />
+                <text
+                  x="133"
+                  y="78"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#0f5c8a"
+                  text-anchor="middle"
+                  font-weight="600"
+                >
+                  Speech to text
+                </text>
+                <rect
+                  x="168"
+                  y="20"
+                  width="220"
+                  height="120"
+                  rx="8"
+                  fill="white"
+                  stroke="#7e22ce"
+                  stroke-width="1.2"
+                  opacity="0.8"
+                />
+                <text
+                  x="182"
+                  y="46"
+                  font-family="serif"
+                  font-size="18"
+                  fill="#7e22ce"
+                  opacity="0.85"
+                >
+                  &#8747;
+                </text>
+                <text
+                  x="206"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#0f5c8a"
+                  opacity="0.8"
+                >
+                  &#931;
+                </text>
+                <text
+                  x="230"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#7e22ce"
+                  opacity="0.85"
+                >
+                  &#8706;
+                </text>
+                <text
+                  x="254"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#0f5c8a"
+                  opacity="0.8"
+                >
+                  &#8730;
+                </text>
+                <text
+                  x="278"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#7e22ce"
+                  opacity="0.85"
+                >
+                  &#8734;
+                </text>
+                <text
+                  x="302"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#0f5c8a"
+                  opacity="0.8"
+                >
+                  &#8711;
+                </text>
+                <text
+                  x="326"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#7e22ce"
+                  opacity="0.85"
+                >
+                  &#960;
+                </text>
+                <text
+                  x="350"
+                  y="46"
+                  font-family="serif"
+                  font-size="16"
+                  fill="#0f5c8a"
+                  opacity="0.8"
+                >
+                  &#952;
+                </text>
+                <text
+                  x="178"
+                  y="72"
+                  font-family="serif"
+                  font-size="12"
+                  fill="#18170f"
+                  opacity="0.75"
+                >
+                  f(x) = x&#178; + 2x &#8722; 5
+                </text>
+                <text
+                  x="178"
+                  y="92"
+                  font-family="serif"
+                  font-size="12"
+                  fill="#18170f"
+                  opacity="0.75"
+                >
+                  &#8747;&#8320;&#185; e&#739; dx = e &#8722; 1
+                </text>
+                <text
+                  x="178"
+                  y="112"
+                  font-family="serif"
+                  font-size="12"
+                  fill="#18170f"
+                  opacity="0.75"
+                >
+                  ||v|| = &#8730;(x&#178; + y&#178;)
+                </text>
+                <rect
+                  x="178"
+                  y="122"
+                  width="200"
+                  height="14"
+                  rx="4"
+                  fill="#fdf4ff"
+                />
+                <text
+                  x="278"
+                  y="132"
+                  font-family="monospace"
+                  font-size="7.5"
+                  fill="#7e22ce"
+                  text-anchor="middle"
+                  font-weight="600"
+                >
+                  200+ symbols &#183; Streamlit &#183; Accessibility
+                </text>
+              </svg>
+            </div>
+            <div class="proj-body">
+              <div class="proj-title">
+                Math Talk &#8212; Speech-to-Symbol AI
+              </div>
+              <div class="proj-desc">
+                End-to-end speech recognition pipeline converting spoken
+                mathematics into symbolic notation, supporting 200+ symbols.
+                Deployed via Streamlit with Google STT.
+              </div>
+              <div class="proj-tags">
+                <span class="ptag nlp">Google STT</span
+                ><span class="ptag ml">ASR</span
+                ><span class="ptag sys">Streamlit</span>
+              </div>
+              <div class="proj-footer">
+                <span
+                  style="
+                    font-size: 0.72rem;
+                    font-family: var(--f-mono);
+                    color: var(--ink3);
+                  "
+                  >NLP + Accessibility</span
+                >
+                <button class="proj-more" onclick="openModal('p5')">
+                  Details <span class="arrow">&#8594;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal-overlay" id="projModal">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+        <div class="modal-img">
+          <div
+            style="
+              color: var(--ink3);
+              font-family: var(--f-mono);
+              font-size: 0.72rem;
+              text-align: center;
+            "
+          >
+            Project Visual
+          </div>
+        </div>
+        <div class="pub-venue" id="modalVenue"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-tags" id="modalTags"></div>
+      </div>
+    </div>
+    <div class="sec-divider"></div>
+
+    <section id="experience">
+      <div class="container">
+        <span class="sec-tag">// Experience</span>
+        <h2 class="sec-title">Work &amp; Research</h2>
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Research Associate</div>
+                <div class="tl-org">
+                  Centre for Interdisciplinary AI, FLAME University
+                </div>
+              </div>
+              <div class="tl-date">July 2025 &#8212; Present</div>
+            </div>
+            <ul class="tl-list">
+              <li>
+                Developed ConvGRU-based precipitation nowcasting model achieving
+                2nd place in NeurIPS Weather4Cast 2025
+              </li>
+              <li>
+                Built satellite-based economic prediction pipeline using
+                Landsat-8 imagery and deep learning
+              </li>
+              <li>
+                Designed and deployed agentic AI tools for language learning and
+                interactive AI education
+              </li>
+              <li>
+                Collaborated on multi-agent system architectures using OpenAI
+                APIs and GCP infrastructure
+              </li>
+            </ul>
+          </div>
+          <div class="tl-item">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Research Intern</div>
+                <div class="tl-org">
+                  Centre for Interdisciplinary AI, FLAME University
+                </div>
+              </div>
+              <div class="tl-date">Jan 2025 &#8212; June 2025</div>
+            </div>
+            <ul class="tl-list">
+              <li>
+                Developed remote sensing machine learning models for land use
+                and land cover classification
+              </li>
+              <li>
+                Built AI-driven research pipelines for geospatial data analysis
+                and visualization
+              </li>
+            </ul>
+          </div>
+          <div class="tl-item">
+            <div class="tl-header">
+              <div>
+                <div class="tl-role">Mathematics Tutor</div>
+                <div class="tl-org">FLAME University</div>
+              </div>
+              <div class="tl-date">October 2025 &#8212; Present</div>
+            </div>
+            <ul class="tl-list">
+              <li>
+                Tutored undergraduate students in calculus, linear algebra, and
+                analytical reasoning
+              </li>
+              <li>
+                Conducted AI literacy workshops for non-technical learners on
+                building chatbots and using LLM tools
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="sec-divider"></div>
+
+    <section
+      id="skills"
+      style="background: var(--card); transition: background 0.4s"
+    >
+      <div class="container">
+        <span class="sec-tag">// Skills</span>
+        <h2 class="sec-title">Tools &amp; Technologies</h2>
+        <div class="skills-wrap reveal-child" id="skillsWrap">
+          <div class="skill-cat">
+            <div class="skill-cat-title">Programming</div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-name">Python</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">SQL</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">R</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="65"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Java</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="60"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-title">Machine Learning</div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-name">Deep Learning</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Computer Vision</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">NLP &amp; LLMs</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="82"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Remote Sensing</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="85"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-title">Libraries</div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-name">PyTorch</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="88"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Scikit-learn</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Pandas / NumPy</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">OpenCV</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-cat">
+            <div class="skill-cat-title">Tools &amp; Platforms</div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-name">Streamlit / Flask</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">GCP / Firestore</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="75"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Roboflow / YOLO</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="80"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Gemini / Whisper APIs</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="78"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Git</div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-w="88"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="sec-divider"></div>
+
+    <section id="achievements">
+      <div class="container">
+        <span class="sec-tag">// Achievements</span>
+        <h2 class="sec-title">Recognition</h2>
+        <div class="ach-grid reveal">
+          <div class="ach-card">
+            <div class="ach-icon" style="background: #fef9c3">
+              <svg viewBox="0 0 26 26" fill="none">
+                <path
+                  d="M13 3l2.5 5 5.5.8-4 3.9.95 5.5L13 15.5l-4.95 2.7.95-5.5-4-3.9 5.5-.8L13 3z"
+                  stroke="#854d0e"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ach-title">
+                2nd Place &#8212; Weather4Cast 2025 (NeurIPS)
+              </div>
+              <div class="ach-sub">
+                Global satellite-based precipitation nowcasting competition,
+                affiliated with NeurIPS 2025
+              </div>
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-icon" style="background: #dbeafe">
+              <svg viewBox="0 0 26 26" fill="none">
+                <circle
+                  cx="13"
+                  cy="10"
+                  r="7"
+                  stroke="#1d4ed8"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M8 15l-3 8 8-3 8 3-3-8"
+                  stroke="#1d4ed8"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ach-title">
+                1st Prize &#8212; Fergusson College Hackathon
+              </div>
+              <div class="ach-sub">
+                Top award in the annual college-wide hackathon competition, 2022
+              </div>
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-icon" style="background: #dcfce7">
+              <svg viewBox="0 0 26 26" fill="none">
+                <circle
+                  cx="13"
+                  cy="13"
+                  r="10"
+                  stroke="#166534"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M9 13l3 3 5-5"
+                  stroke="#166534"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ach-title">
+                Founder &#8212; Fergusson College Data Science Club
+              </div>
+              <div class="ach-sub">
+                Established and led the college's first Data Science student
+                community
+              </div>
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-icon" style="background: #f3e8ff">
+              <svg viewBox="0 0 26 26" fill="none">
+                <rect
+                  x="4"
+                  y="6"
+                  width="18"
+                  height="16"
+                  rx="2"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M9 10h8M9 14h5"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M13 2v4"
+                  stroke="#7e22ce"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ach-title">
+                Student Placement Coordinator &#8212; MSc Data Science
+              </div>
+              <div class="ach-sub">
+                Coordinated industry connections and career pathways for the
+                Data Science batch
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="sec-divider"></div>
+
+<section id="creative" style="background:var(--card);transition:background .4s;">
+  <div class="container">
+    <span class="sec-tag">// Creative Explorations</span>
+    <h2 class="sec-title">Beyond Research</h2>
+    <p style="color:var(--ink2);max-width:560px;line-height:1.75;margin-bottom:36px;font-size:.97rem;">Beyond AI and research, I enjoy creating things with my hands. Small artistic experiments, DIY builds, and visual projects that reflect curiosity, creativity, and craftsmanship.</p>
+    <div class="gallery-filter reveal">
+      <button class="f-btn on" data-gf="all">All</button>
+      <button class="f-btn" data-gf="artwork">Artwork</button>
+      <button class="f-btn" data-gf="diy">DIY Projects</button>
+      <button class="f-btn" data-gf="crafts">Crafts</button>
+    </div>
+   
+    <div class="gallery-grid reveal" id="galleryGrid">
+
+    <div class="gallery-item" data-gc="artwork">
+        <img src="a.jpg" alt="Geometric Patterns Study">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Geometric Patterns Study</div>
+        <div class="gallery-tag">Artwork</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="artwork">
+        <img src="a.jpg" alt="Acrylic Experiment">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Acrylic Experiment</div>
+        <div class="gallery-tag">Artwork</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="diy">
+        <img src="a.jpg" alt="Handmade Craft Object">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Handmade Craft Object</div>
+        <div class="gallery-tag">DIY Projects</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="diy">
+        <img src="a.jpg" alt="Design Build Experiment">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Design Build Experiment</div>
+        <div class="gallery-tag">DIY Projects</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="crafts">
+        <img src="a.jpg" alt="Decorative Object">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Decorative Object</div>
+        <div class="gallery-tag">Crafts</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="crafts">
+        <img src="a.jpg" alt="Grid Composition">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Grid Composition</div>
+        <div class="gallery-tag">Crafts</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="artwork">
+        <img src="a.jpg" alt="Textile Craft Piece">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Textile Craft Piece</div>
+        <div class="gallery-tag">Artwork</div>
+        </div>
+    </div>
+
+    <div class="gallery-item" data-gc="artwork">
+        <img src="a.jpg" alt="Visual Experiment">
+        <div class="gallery-overlay">
+        <div class="gallery-caption">Visual Experiment</div>
+        <div class="gallery-tag">Artwork</div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</section> -->
+    <div class="modal-overlay" id="galleryModal">
+      <div class="modal-box" style="max-width: 520px">
+        <button class="modal-close" onclick="closeGalleryModal()">
+          &#x2715;
+        </button>
+        <div class="modal-img" style="height: 300px" id="gModalImg">
+          <div
+            style="
+              color: var(--ink3);
+              font-family: var(--f-mono);
+              font-size: 0.72rem;
+              text-align: center;
+            "
+          >
+            Image Placeholder
+          </div>
+        </div>
+        <div
+          class="modal-title"
+          id="gModalTitle"
+          style="font-size: 1.3rem; margin-bottom: 8px"
+        ></div>
+        <div
+          id="gModalDesc"
+          style="font-size: 0.88rem; color: var(--ink2); line-height: 1.65"
+        ></div>
+      </div>
+    </div>
+    <div class="sec-divider"></div>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <span class="sec-tag">// Contact</span>
+        <h2 class="sec-title">Let's Connect</h2>
+        <div class="contact-inner reveal">
+          <div class="contact-info">
+            <p>
+              Open to collaborations in AI research, machine learning, and
+              interdisciplinary technology projects. Particularly interested in
+              work at the intersection of remote sensing, computer vision, and
+              real-world impact.
             </p>
           </div>
+          <div class="contact-links-list">
+            <a class="clink" href="mailto:anushreebhuskute@gmail.com"
+              ><div class="clink-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </div>
+              <div>
+                <div class="clink-label">Email</div>
+                <div class="clink-val">anushreebhuskute@gmail.com</div>
+              </div></a
+            >
+            <a
+              class="clink"
+              href="https://linkedin.com/in/anushree-bhuskute"
+              target="_blank"
+              ><div class="clink-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="clink-label">LinkedIn</div>
+                <div class="clink-val">linkedin.com/in/anushree-bhuskute</div>
+              </div></a
+            >
+            <a
+              class="clink"
+              href="https://github.com/Anushree-B"
+              target="_blank"
+              ><div class="clink-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.218.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.09-.646.349-1.086.635-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="clink-label">GitHub</div>
+                <div class="clink-val">github.com/Anushree-B</div>
+              </div></a
+            >
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="main-footer__lower">
-          &copy; Copyright 2024.
+    <footer>
+      <div>
+        <div class="footer-brand">Anushree Bhuskute</div>
+        <div class="footer-tag">
+          AI Researcher &#183; Data Scientist &#183; Multimodal AI Developer
         </div>
+      </div>
+      <div class="footer-copy">
+        &#169; 2025 Anushree Bhuskute. Made with ❤️.
+      </div>
+      <div class="footer-social">
+        <a class="fsoc" href="mailto:anushreebhuskute@gmail.com"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" /></svg
+        ></a>
+        <a
+          class="fsoc"
+          href="https://linkedin.com/in/anushree-bhuskute"
+          target="_blank"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            /></svg
+        ></a>
+        <a class="fsoc" href="https://github.com/Anushree-B" target="_blank"
+          ><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.218.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.09-.646.349-1.086.635-1.337-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+            /></svg
+        ></a>
       </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script>
+      const tp = document.getElementById("themeToggle");
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("ab2-theme") || "light",
+      );
+      tp.addEventListener("click", () => {
+        const n =
+          document.documentElement.getAttribute("data-theme") == "light"
+            ? "dark"
+            : "light";
+        document.documentElement.setAttribute("data-theme", n);
+        localStorage.setItem("ab2-theme", n);
+      });
+      const roles = [
+        "Multimodal AI Researcher",
+        "Remote Sensing Engineer",
+        "Computer Vision Developer",
+        "NeurIPS Competitor",
+        "Agentic AI Builder",
+      ];
+      let ri = 0,
+        ci = 0,
+        del = false;
+      const tel = document.getElementById("typed");
+      function typeStep() {
+        const w = roles[ri];
+        if (!del) {
+          tel.textContent = w.slice(0, ++ci);
+          if (ci === w.length) {
+            del = true;
+            setTimeout(typeStep, 1700);
+            return;
+          }
+          setTimeout(typeStep, 60);
+        } else {
+          tel.textContent = w.slice(0, --ci);
+          if (ci === 0) {
+            del = false;
+            ri = (ri + 1) % roles.length;
+            setTimeout(typeStep, 300);
+            return;
+          }
+          setTimeout(typeStep, 28);
+        }
+      }
+      setTimeout(typeStep, 1000);
+      function togglePub(id, btn) {
+        const el = document.getElementById(id);
+        const open = el.classList.toggle("open");
+        btn.textContent = open ? "Hide Details" : "Show Details";
+      }
+      const PROJ = {
+        p1: {
+          venue: "NeurIPS 2025 — Weather4Cast",
+          title: "Weather4Cast 2025 Challenge",
+          body: "<p>ConvGRU-based precipitation nowcasting using geostationary satellite imagery with cascade forecasting and transfer learning. Achieved 2nd place globally in the NeurIPS Weather4Cast 2025 benchmark.</p>",
+          tags: [
+            "ConvGRU",
+            "Satellite Data",
+            "Transfer Learning",
+            "PyTorch",
+            "NeurIPS 2025",
+          ],
+        },
+        p2: {
+          venue: "Remote Sensing Research",
+          title: "Spatial Economic Growth Prediction",
+          body: "<p>MLP and CNN pipeline using Landsat-8 multispectral imagery to estimate village and district-level socio-economic indicators at scale.</p>",
+          tags: ["Landsat-8", "CNN", "MLP", "PyTorch", "Economic AI"],
+        },
+        p3: {
+          venue: "Computer Vision / Conservation AI",
+          title: "Human–Wildlife Conflict Alert System",
+          body: "<p>Real-time YOLO detection of tigers and leopards with automated Twilio SMS alerts and Gemini API situational summaries. Designed for wildlife corridor deployment.</p>",
+          tags: [
+            "YOLO",
+            "Real-time Detection",
+            "Twilio",
+            "Gemini API",
+            "Roboflow",
+          ],
+        },
+        p4: {
+          venue: "Agentic AI Systems",
+          title: "AI Interaction Platforms",
+          body: "<p>Suite of interactive AI platforms including a Turing Test web app and adaptive French–German language tutor, powered by OpenAI multi-agent architectures on GCP with Firestore.</p>",
+          tags: [
+            "LLMs",
+            "Multi-agent",
+            "OpenAI API",
+            "Flask",
+            "GCP",
+            "Firestore",
+          ],
+        },
+        p5: {
+          venue: "NLP / Accessibility",
+          title: "Math Talk — Speech-to-Symbol AI",
+          body: "<p>End-to-end speech recognition converting spoken mathematics into formal symbolic notation using OpenAI Whisper with a custom symbol mapping layer supporting 200+ symbols. Deployed as an accessible Streamlit app.</p>",
+          tags: ["Whisper", "ASR", "Streamlit", "Accessibility", "NLP"],
+        },
+      };
+      function openModal(id) {
+        const p = PROJ[id];
+        if (!p) return;
+        document.getElementById("modalVenue").textContent = p.venue;
+        document.getElementById("modalTitle").textContent = p.title;
+        document.getElementById("modalBody").innerHTML = p.body;
+        const mt = document.getElementById("modalTags");
+        mt.innerHTML = p.tags
+          .map((t) => `<span class="ptag ml">${t}</span>`)
+          .join("");
+        document.getElementById("projModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("projModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.getElementById("projModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeModal();
+      });
+      document.querySelectorAll(".filter-row .f-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn
+            .closest(".filter-row")
+            .querySelectorAll(".f-btn")
+            .forEach((b) => b.classList.remove("on"));
+          btn.classList.add("on");
+          const f = btn.dataset.f;
+          let delay = 0;
+          document.querySelectorAll("#projGrid .proj-card").forEach((c) => {
+            const cats = c.dataset.cats || "";
+            const show = f === "all" || cats.split(" ").includes(f);
+            if (show) {
+              c.classList.remove("hidden");
+              c.style.animationDelay = delay + "ms";
+              c.classList.remove("in");
+              void c.offsetWidth;
+              c.classList.add("in");
+              delay += 55;
+            } else {
+              c.classList.add("hidden");
+            }
+          });
+        });
+      });
+      document.querySelectorAll(".gallery-filter .f-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn
+            .closest(".gallery-filter")
+            .querySelectorAll(".f-btn")
+            .forEach((b) => b.classList.remove("on"));
+          btn.classList.add("on");
+          const f = btn.dataset.gf;
+          document
+            .querySelectorAll("#galleryGrid .gallery-item")
+            .forEach((c) => {
+              const gc = c.dataset.gc || "";
+              f === "all" || gc === f
+                ? c.classList.remove("ghidden")
+                : c.classList.add("ghidden");
+            });
+        });
+      });
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const cap = item.querySelector(".gallery-caption")?.textContent || "";
+          const tag = item.querySelector(".gallery-tag")?.textContent || "";
+          document.getElementById("gModalTitle").textContent = cap;
+          document.getElementById("gModalDesc").textContent =
+            `Category: ${tag}`;
+          document.getElementById("galleryModal").classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+      function closeGalleryModal() {
+        document.getElementById("galleryModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.getElementById("galleryModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeGalleryModal();
+      });
+      const ro = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              if (e.target.classList.contains("reveal-child")) {
+                [...e.target.children].forEach(
+                  (c, i) => (c.style.transitionDelay = i * 70 + "ms"),
+                );
+              }
+              e.target.classList.add("vis");
+              e.target
+                .querySelectorAll("[data-target]")
+                .forEach((el) => animCounter(el));
+              e.target.querySelectorAll(".skill-fill[data-w]").forEach((el) => {
+                setTimeout(() => {
+                  el.style.width = el.dataset.w + "%";
+                }, 100);
+              });
+            }
+          });
+        },
+        { threshold: 0.07 },
+      );
+      document
+        .querySelectorAll(".reveal,.reveal-child")
+        .forEach((el) => ro.observe(el));
+      const skillsObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.querySelectorAll(".skill-fill[data-w]").forEach((el) => {
+                setTimeout(() => {
+                  el.style.width = el.dataset.w + "%";
+                }, 200);
+              });
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      const sw = document.getElementById("skillsWrap");
+      if (sw) skillsObs.observe(sw);
+      function animCounter(el) {
+        const target = parseInt(el.dataset.target) || 0;
+        let cur = 0;
+        const step = Math.ceil(target / 40);
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= target) {
+            cur = target;
+            clearInterval(t);
+          }
+          el.textContent = cur;
+        }, 30);
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          closeGalleryModal();
+        }
+      });
+    </script>
   </body>
 </html>
